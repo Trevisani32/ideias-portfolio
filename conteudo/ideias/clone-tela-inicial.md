@@ -8,7 +8,7 @@ icone: "🎬"
 resumo: "Reprodução fiel da tela inicial de um site conhecido, para treinar a transformação de um layout real em código."
 tecnologias: [HTML, CSS]
 treina: [Leitura de layout, DevTools, Posicionamento, Overflow e scroll-snap, Fidelidade visual]
-status: rascunho
+status: publicada
 ---
 
 ## Sobre o projeto

@@ -8,7 +8,7 @@ icone: "📋"
 resumo: "Quadro de tarefas em colunas, com cartões que você arrasta de uma coluna para outra."
 tecnologias: [HTML, CSS, JavaScript]
 treina: [Drag and Drop API, Modelagem de estado, Módulos, Estado × renderização]
-status: rascunho
+status: publicada
 ---
 
 ## Sobre o projeto

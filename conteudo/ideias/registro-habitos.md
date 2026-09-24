@@ -8,7 +8,7 @@ icone: "🌱"
 resumo: "App para acompanhar hábitos do dia a dia e ver a sequência de dias cumpridos, com os dados salvos no navegador."
 tecnologias: [HTML, CSS, JavaScript]
 treina: [Datas em JavaScript, localStorage e JSON, Modelagem de dados, Renderização de listas]
-status: rascunho
+status: publicada
 ---
 
 ## Sobre o projeto

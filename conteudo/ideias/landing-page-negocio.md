@@ -8,7 +8,7 @@ icone: "🛍️"
 resumo: "Página de apresentação de um negócio inventado por você, com as seções clássicas de uma landing page e layout responsivo."
 tecnologias: [HTML, CSS]
 treina: [Flexbox, Grid, Media queries, Mobile-first, Formulários, Acessibilidade básica]
-status: rascunho
+status: publicada
 ---
 
 ## Sobre o projeto

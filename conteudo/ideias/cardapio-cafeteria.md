@@ -8,7 +8,7 @@ icone: "☕"
 resumo: "Página de cardápio de uma cafeteria inventada por você, com categorias, fotos, preços e layout em grade."
 tecnologias: [HTML, CSS]
 treina: [HTML semântico, Imagens acessíveis, CSS Grid, Variáveis CSS, Âncoras]
-status: rascunho
+status: publicada
 ---
 
 ## Sobre o projeto

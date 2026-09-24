@@ -8,7 +8,7 @@ icone: "🔐"
 resumo: "Ferramenta que gera senhas fortes com as opções que você escolher. Pequena, útil e boa para o primeiro contato com JavaScript."
 tecnologias: [HTML, CSS, JavaScript]
 treina: [DOM e eventos, Strings e arrays, Aleatoriedade segura, Clipboard API]
-status: rascunho
+status: publicada
 ---
 
 ## Sobre o projeto

@@ -8,7 +8,7 @@ icone: "🐷"
 resumo: "App para registrar entradas e saídas, com filtros, totais do período e gráfico de gastos por categoria."
 tecnologias: [HTML, CSS, JavaScript, Chart.js]
 treina: [CRUD, Módulos (ES modules), Validação de formulário, Intl, Biblioteca externa, Estado derivado]
-status: rascunho
+status: publicada
 ---
 
 ## Sobre o projeto

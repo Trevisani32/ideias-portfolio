@@ -8,7 +8,7 @@ icone: "🧠"
 resumo: "Quiz sobre um tema de que você goste, com retorno a cada resposta, pontuação e resultado no final."
 tecnologias: [HTML, CSS, JavaScript]
 treina: [Arrays de objetos, Estado da aplicação, HTML pelo JavaScript, Eventos, Embaralhamento]
-status: rascunho
+status: publicada
 ---
 
 ## Sobre o projeto

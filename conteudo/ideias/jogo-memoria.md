@@ -8,7 +8,7 @@ icone: "🃏"
 resumo: "O clássico jogo de encontrar pares, com cartas que viram, cronômetro e contador de jogadas."
 tecnologias: [HTML, CSS, JavaScript]
 treina: [Estado do jogo, setTimeout e setInterval, Classes CSS pelo JavaScript, Animações CSS, Prevenção de clique duplo]
-status: rascunho
+status: publicada
 ---
 
 ## Sobre o projeto
