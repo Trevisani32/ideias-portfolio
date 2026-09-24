@@ -114,6 +114,17 @@ describe('ConteudoService', () => {
     expect(servico.status()).toBe('pronto');
   });
 
+  it('sempre confere com o servidor, para não mostrar conteúdo velho do cache', () => {
+    servico.carregarIndice();
+    expect(http.expectOne('conteudo/indice.json').request.cache).toBe('no-cache');
+
+    servico.carregarCorpo('a').subscribe();
+    expect(http.expectOne('conteudo/ideias/a.md').request.cache).toBe('no-cache');
+
+    servico.carregarPagina('inicio').subscribe();
+    expect(http.expectOne('conteudo/inicio.json').request.cache).toBe('no-cache');
+  });
+
   it('busca o corpo da ideia como texto e as páginas como JSON', () => {
     let corpo = '';
     servico.carregarCorpo('a').subscribe((texto) => (corpo = texto));

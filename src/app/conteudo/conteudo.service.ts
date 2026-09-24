@@ -13,6 +13,13 @@ import {
 export type NomeDaPagina = 'inicio' | 'recado';
 
 /**
+ * O GitHub Pages manda o navegador guardar cada arquivo por 10 minutos. Com 'no-cache', o
+ * navegador sempre confere com o servidor antes de usar a cópia guardada (304 se nada mudou),
+ * então conteúdo publicado aparece na hora, sem esperar o cache vencer.
+ */
+const SEMPRE_CONFERIR = { cache: 'no-cache' as RequestCache };
+
+/**
  * Lê o conteúdo gerado em public/conteudo/.
  * Os caminhos são relativos (sem "/" no começo) para respeitar o baseHref do GitHub Pages.
  */
@@ -43,7 +50,7 @@ export class ConteudoService {
     if (this.carregando || this._status() === 'pronto') return;
     this.carregando = true;
     this._status.set('carregando');
-    this.http.get<Indice>('conteudo/indice.json').subscribe({
+    this.http.get<Indice>('conteudo/indice.json', SEMPRE_CONFERIR).subscribe({
       next: (indice) => {
         this._indice.set(indice);
         this._status.set('pronto');
@@ -77,11 +84,12 @@ export class ConteudoService {
 
   carregarCorpo(slug: string): Observable<string> {
     return this.http.get(`conteudo/ideias/${encodeURIComponent(slug)}.md`, {
+      ...SEMPRE_CONFERIR,
       responseType: 'text',
     });
   }
 
   carregarPagina(nome: NomeDaPagina): Observable<Pagina> {
-    return this.http.get<Pagina>(`conteudo/${nome}.json`);
+    return this.http.get<Pagina>(`conteudo/${nome}.json`, SEMPRE_CONFERIR);
   }
 }
