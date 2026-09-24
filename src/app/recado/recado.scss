@@ -1,0 +1,122 @@
+app-recado {
+  display: block;
+}
+
+.mesa {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-height: 80vh;
+  padding: var(--espaco-6) var(--espaco-4);
+
+  &__coracao {
+    position: absolute;
+    color: var(--rosa-300);
+    animation: flutuar-carta 7s ease-in-out infinite;
+
+    &--1 {
+      top: 8%;
+      left: 12%;
+      font-size: 2.5rem;
+    }
+
+    &--2 {
+      top: 18%;
+      right: 10%;
+      color: var(--lilas-500);
+      font-size: 2rem;
+      animation-delay: -2.5s;
+    }
+
+    &--3 {
+      bottom: 10%;
+      left: 20%;
+      font-size: 1.5rem;
+      animation-delay: -5s;
+    }
+  }
+}
+
+@keyframes flutuar-carta {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(-10px) rotate(-10deg);
+  }
+}
+
+// Papel de carta pautado, levemente torto como se estivesse sobre a mesa.
+// Tudo (padding, título, parágrafos, margens) é múltiplo de --linha, para a letra
+// assentar sempre na pauta do papel.
+.carta {
+  --linha: 2.2rem;
+
+  position: relative;
+  width: min(100%, 40rem);
+  padding: calc(var(--linha) * 2) var(--espaco-7) var(--linha);
+  border-radius: var(--raio-medio);
+  background-color: #fffdf8;
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent 0,
+    transparent calc(var(--linha) - 1px),
+    var(--rosa-100) calc(var(--linha) - 1px),
+    var(--rosa-100) var(--linha)
+  );
+  box-shadow:
+    0 1px 0 rgb(0 0 0 / 4%),
+    var(--sombra-media);
+  transform: rotate(-0.8deg);
+
+  &__selo {
+    position: absolute;
+    top: -1.75rem;
+    right: 2rem;
+    font-size: 3.5rem;
+    transform: rotate(12deg);
+  }
+
+  &__titulo {
+    margin: 0;
+    color: var(--rosa-600);
+    font-family: var(--fonte-carta);
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: calc(var(--linha) * 2);
+  }
+
+  &__texto {
+    display: block;
+    color: var(--ameixa-800);
+    font-family: var(--fonte-carta);
+    font-size: 1.65rem;
+    line-height: var(--linha);
+
+    :where(p, ul, ol) {
+      margin: 0 0 var(--linha);
+    }
+
+    :where(li) {
+      margin: 0;
+    }
+  }
+
+  &__fim {
+    margin: 0;
+    color: var(--rosa-500);
+    font-size: 1.25rem;
+    line-height: var(--linha);
+    letter-spacing: 0.4em;
+    text-align: right;
+  }
+}
+
+@media (max-width: 1023px) {
+  .carta {
+    padding: calc(var(--linha) * 2) var(--espaco-5) var(--linha);
+    transform: none;
+  }
+}

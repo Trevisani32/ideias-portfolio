@@ -1,0 +1,90 @@
+// Tokens de design: toda cor, espaçamento e fonte do site sai daqui.
+
+:root {
+  // Paleta pastel
+  --rosa-50: #fff5f9;
+  --rosa-100: #ffe4ef;
+  --rosa-200: #fecde0;
+  --rosa-300: #fba8c8;
+  --rosa-500: #e75a95;
+  --rosa-600: #c2336d;
+  --rosa-700: #9d2458;
+  --lilas-50: #f8f3ff;
+  --lilas-100: #efe6ff;
+  --lilas-200: #dfd0ff;
+  --lilas-500: #9670e6;
+  --lilas-600: #7445c9;
+  --ceu-100: #e1efff;
+  --menta-100: #dcf5ea;
+  --ambar-100: #fff1cc;
+  --ambar-500: #f0a92e;
+  --ambar-700: #7a4a00;
+  --ameixa-700: #4a3450;
+  --ameixa-800: #3b2a3f;
+  --ameixa-900: #2e2436;
+
+  // Papéis
+  --cor-fundo: #fffafc;
+  --cor-superficie: #ffffff;
+  --cor-texto: var(--ameixa-800);
+  --cor-texto-suave: #75607a;
+  --cor-borda: #f4dfe9;
+  --cor-destaque: var(--rosa-600);
+  --cor-destaque-forte: var(--rosa-700);
+  --cor-destaque-suave: var(--rosa-100);
+  --cor-secundaria: var(--lilas-600);
+  --cor-erro: #b42318;
+  --cor-erro-fundo: #fef3f2;
+
+  // Gradientes e sombras
+  --gradiente-suave: linear-gradient(135deg, #ffe1ee 0%, #efe3ff 55%, #e1efff 100%);
+  --gradiente-menu: linear-gradient(180deg, #fff0f6 0%, #f6efff 100%);
+  --gradiente-forte: linear-gradient(135deg, var(--rosa-600) 0%, var(--lilas-600) 100%);
+  --sombra-suave: 0 4px 14px rgb(194 51 109 / 8%);
+  --sombra-media: 0 14px 34px rgb(116 69 201 / 14%);
+
+  // Barras de rolagem
+  --rolagem-trilho: var(--rosa-50);
+  --rolagem-pilula: linear-gradient(180deg, var(--rosa-300), var(--lilas-200));
+  --rolagem-pilula-forte: linear-gradient(180deg, var(--rosa-500), var(--lilas-500));
+  --rolagem-pilula-deitada: linear-gradient(90deg, var(--rosa-300), var(--lilas-200));
+  --rolagem-pilula-deitada-forte: linear-gradient(90deg, var(--rosa-500), var(--lilas-500));
+
+  // Blocos de código
+  --cor-codigo-fundo: var(--lilas-50);
+  --cor-codigo-barra: var(--lilas-100);
+  --cor-prompt-fundo: var(--rosa-50);
+  --cor-prompt-barra: var(--rosa-100);
+  --cor-prompt-borda: var(--rosa-300);
+  --cor-terminal-fundo: var(--ameixa-900);
+  --cor-terminal-barra: var(--ameixa-700);
+  --cor-terminal-texto: #fdeef5;
+
+  // Tipografia
+  --fonte-texto: 'Nunito Variable', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --fonte-titulo: 'Fredoka Variable', 'Nunito Variable', system-ui, sans-serif;
+  --fonte-carta: 'Caveat Variable', 'Segoe Script', cursive;
+  --fonte-codigo: ui-monospace, SFMono-Regular, Consolas, 'Liberation Mono', monospace;
+  --tamanho-texto: 1.0625rem;
+  --tamanho-pequeno: 0.875rem;
+  --altura-linha: 1.7;
+
+  // Espaçamentos
+  --espaco-1: 0.25rem;
+  --espaco-2: 0.5rem;
+  --espaco-3: 0.75rem;
+  --espaco-4: 1rem;
+  --espaco-5: 1.5rem;
+  --espaco-6: 2rem;
+  --espaco-7: 3rem;
+  --espaco-8: 4.5rem;
+
+  // Medidas
+  --largura-menu: 18.5rem;
+  --largura-texto: 48rem;
+  --largura-pagina: 62rem;
+  --raio: 1.25rem;
+  --raio-medio: 0.875rem;
+  --raio-pequeno: 0.5rem;
+  --raio-pilula: 999px;
+}

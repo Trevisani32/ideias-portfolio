@@ -1,0 +1,212 @@
+.layout {
+  display: grid;
+  grid-template-columns: var(--largura-menu) minmax(0, 1fr);
+  min-height: 100vh;
+}
+
+.menu {
+  position: sticky;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow-y: auto;
+  padding: var(--espaco-5) var(--espaco-4);
+  background: var(--gradiente-menu);
+  box-shadow: 1px 0 0 var(--cor-borda);
+
+  &__navegacao {
+    flex: 1;
+  }
+
+  &__lista {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  &__link {
+    display: flex;
+    align-items: center;
+    gap: var(--espaco-2);
+    padding: var(--espaco-2) var(--espaco-3);
+    border-radius: var(--raio-medio);
+    color: var(--cor-texto);
+    font-size: 0.95rem;
+    font-weight: 600;
+    line-height: 1.35;
+    text-decoration: none;
+    transition:
+      background 0.15s,
+      transform 0.15s;
+
+    &:hover {
+      background: rgb(255 255 255 / 70%);
+      color: var(--cor-texto);
+      transform: translateX(2px);
+    }
+
+    &--ativo,
+    &--ativo:hover {
+      background: var(--cor-superficie);
+      box-shadow: var(--sombra-suave);
+      color: var(--cor-destaque-forte);
+    }
+
+    &--recado {
+      margin-top: var(--espaco-1);
+      background: linear-gradient(90deg, var(--rosa-100), var(--lilas-100));
+      color: var(--rosa-700);
+    }
+
+    &--recado#{&}--ativo {
+      background: var(--cor-superficie);
+      box-shadow:
+        inset 0 0 0 2px var(--rosa-200),
+        var(--sombra-suave);
+    }
+
+    &--ideia {
+      font-size: 0.9rem;
+    }
+  }
+
+  &__icone {
+    flex: none;
+    width: 1.5rem;
+    text-align: center;
+  }
+
+  &__texto {
+    flex: 1;
+  }
+
+  &__passo {
+    display: grid;
+    flex: none;
+    place-items: center;
+    width: 1.4rem;
+    height: 1.4rem;
+    border-radius: 50%;
+    background: var(--cor-superficie);
+    box-shadow: inset 0 0 0 1.5px var(--rosa-200);
+    color: var(--rosa-600);
+    font-family: var(--fonte-titulo);
+    font-size: 0.72rem;
+    font-weight: 600;
+  }
+
+  &__link--ativo &__passo {
+    background: var(--gradiente-forte);
+    box-shadow: none;
+    color: #fff;
+  }
+
+  &__rascunho {
+    flex: none;
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    background: var(--ambar-500);
+  }
+
+  &__bloco {
+    margin-top: var(--espaco-6);
+  }
+
+  &__titulo-bloco {
+    display: flex;
+    flex-direction: column;
+    margin: 0 var(--espaco-3) var(--espaco-3);
+    font-size: 1rem;
+  }
+
+  &__numero-bloco {
+    color: var(--lilas-600);
+    font-family: var(--fonte-texto);
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  &__aviso {
+    margin: var(--espaco-5) var(--espaco-3);
+    color: var(--cor-texto-suave);
+    font-size: var(--tamanho-pequeno);
+  }
+
+  &__rodape {
+    margin: var(--espaco-6) var(--espaco-3) 0;
+    color: var(--cor-texto-suave);
+    font-size: 0.8rem;
+  }
+}
+
+.marca {
+  display: flex;
+  align-items: center;
+  gap: var(--espaco-3);
+  margin-bottom: var(--espaco-5);
+  padding: var(--espaco-2);
+  color: var(--cor-texto);
+  text-decoration: none;
+
+  &:hover {
+    color: var(--cor-texto);
+  }
+
+  &__icone {
+    display: grid;
+    flex: none;
+    place-items: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: 50%;
+    background: var(--cor-superficie);
+    box-shadow: var(--sombra-suave);
+    font-size: 1.4rem;
+  }
+
+  &__textos {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__nome {
+    font-family: var(--fonte-titulo);
+    font-size: 1.15rem;
+    font-weight: 600;
+    line-height: 1.2;
+  }
+
+  &__lema {
+    color: var(--cor-texto-suave);
+    font-size: 0.8rem;
+  }
+}
+
+.principal {
+  min-width: 0;
+  padding: var(--espaco-7) var(--espaco-7) var(--espaco-8) 3.5rem;
+}
+
+// O site é pensado para desktop; abaixo disso, o menu vai para o topo e nada quebra.
+@media (max-width: 1023px) {
+  .layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .menu {
+    position: static;
+    height: auto;
+    box-shadow: 0 1px 0 var(--cor-borda);
+  }
+
+  .principal {
+    padding: var(--espaco-5) var(--espaco-4) var(--espaco-7);
+  }
+}

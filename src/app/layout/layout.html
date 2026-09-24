@@ -1,0 +1,87 @@
+<div class="layout">
+  <aside class="menu">
+    <a class="marca" routerLink="/">
+      <span class="marca__icone" aria-hidden="true">🌷</span>
+      <span class="marca__textos">
+        <span class="marca__nome">{{ nomeDoSite }}</span>
+        <span class="marca__lema">com a IA de professora</span>
+      </span>
+    </a>
+
+    <nav class="menu__navegacao" aria-label="Menu principal">
+      <ul class="menu__lista">
+        <li>
+          <a
+            class="menu__link"
+            routerLink="/"
+            routerLinkActive="menu__link--ativo"
+            [routerLinkActiveOptions]="{ exact: true }"
+            ariaCurrentWhenActive="page"
+          >
+            <span class="menu__icone" aria-hidden="true">🏡</span>
+            <span class="menu__texto">Início</span>
+          </a>
+        </li>
+        <li>
+          <a
+            class="menu__link menu__link--recado"
+            routerLink="/para-voce"
+            routerLinkActive="menu__link--ativo"
+            ariaCurrentWhenActive="page"
+          >
+            <span class="menu__icone" aria-hidden="true">💌</span>
+            <span class="menu__texto">Para você</span>
+          </a>
+        </li>
+      </ul>
+
+      @switch (conteudo.status()) {
+        @case ('carregando') {
+          <p class="menu__aviso">Carregando ideias…</p>
+        }
+        @case ('erro') {
+          <p class="menu__aviso">Não foi possível carregar as ideias.</p>
+        }
+        @case ('pronto') {
+          @for (bloco of conteudo.blocos(); track bloco.id) {
+            <section class="menu__bloco" [attr.aria-labelledby]="'menu-bloco-' + bloco.id">
+              <h2 class="menu__titulo-bloco" [id]="'menu-bloco-' + bloco.id">
+                <span class="menu__numero-bloco">Bloco {{ bloco.numero }}</span>
+                {{ bloco.titulo }}
+              </h2>
+              <ol class="menu__lista menu__lista--trilha">
+                @for (ideia of bloco.ideias; track ideia.slug; let posicao = $index) {
+                  <li>
+                    <a
+                      class="menu__link menu__link--ideia"
+                      [routerLink]="['/ideias', ideia.slug]"
+                      routerLinkActive="menu__link--ativo"
+                      ariaCurrentWhenActive="page"
+                    >
+                      <span class="menu__passo" aria-hidden="true">{{ posicao + 1 }}</span>
+                      <span class="menu__icone" aria-hidden="true">{{ ideia.icone }}</span>
+                      <span class="menu__texto">{{ ideia.titulo }}</span>
+                      @if (ideia.status === 'rascunho') {
+                        <span class="menu__rascunho" title="Rascunho">
+                          <span class="visualmente-oculto">(rascunho)</span>
+                        </span>
+                      }
+                    </a>
+                  </li>
+                }
+              </ol>
+            </section>
+          } @empty {
+            <p class="menu__aviso">Nenhuma ideia publicada ainda.</p>
+          }
+        }
+      }
+    </nav>
+
+    <p class="menu__rodape">feito com <span role="img" aria-label="amor">💗</span></p>
+  </aside>
+
+  <main class="principal">
+    <router-outlet />
+  </main>
+</div>
