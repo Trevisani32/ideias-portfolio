@@ -1,5 +1,5 @@
 ---
-titulo: Para você, meu amor
+titulo: Para você, Pitufina
 ---
 
 <!--
@@ -12,7 +12,7 @@ Meu amor,
 
 Eu fiz este cantinho pensando em você. Cada ideia, cada cor e cada coraçãozinho daqui guardam um pedacinho do quanto eu te amo e do quanto eu acredito em você.
 
-Quero que você saiba que eu me importo com cada passo seu: com os dias em que tudo dá certo e, principalmente, com os dias em que nada parece funcionar. Nesses dias, lembra que errar faz parte de aprender e que ninguém nasce sabendo. Todo mundo que programa já passou horas procurando um ponto e vírgula perdido. 😄
+Quero que você saiba que eu me importo com cada passo seu: com os dias em que tudo dá certo e, principalmente, com os dias em que nada parece funcionar. Nesses dias, lembra que errar faz parte de aprender e que ninguém nasce sabendo. Todo mundo que programa já passou horas procurando um ponto e vírgula perdido.
 
 Aprender algo novo é um ato de coragem, e eu sinto muito orgulho de te ver tentando, perguntando e insistindo. Não é sobre ser rápida nem perfeita: é sobre continuar, um projeto de cada vez, no seu tempo.
 
@@ -23,4 +23,4 @@ Quando o seu portfólio estiver cheio de projetos, quero que você olhe para ele
 Eu te amo muito. Hoje, amanhã e em cada linha de código que vier.
 
 Com todo o meu amor,\
-de quem te ama muito 💗
+Papa pitufo
