@@ -1,0 +1,82 @@
+@switch (pagina().estado) {
+  @case ('carregando') {
+    <p class="aviso">Carregando… ✨</p>
+  }
+  @case ('erro') {
+    <p class="aviso aviso--erro">Não foi possível carregar esta página. Recarregue a página.</p>
+  }
+  @case ('pronto') {
+    @if (pagina().valor; as inicio) {
+      <header class="hero">
+        <span class="hero__enfeite hero__enfeite--1" aria-hidden="true">✦</span>
+        <span class="hero__enfeite hero__enfeite--2" aria-hidden="true">♡</span>
+        <span class="hero__enfeite hero__enfeite--3" aria-hidden="true">✿</span>
+        <span class="hero__enfeite hero__enfeite--4" aria-hidden="true">✦</span>
+
+        <p class="hero__chamada"><span aria-hidden="true">✨</span> Seu cantinho de projetos</p>
+        <h1 class="hero__titulo">{{ inicio.titulo }}</h1>
+        <p class="hero__subtitulo">{{ inicio.subtitulo }}</p>
+        @if (primeiraIdeia(); as primeira) {
+          <a class="botao" [routerLink]="['/ideias', primeira.slug]">
+            Começar pela primeira ideia <span aria-hidden="true">→</span>
+          </a>
+        }
+      </header>
+
+      <section class="apresentacao">
+        <markdown class="prosa prosa--compacta" [data]="inicio.corpo" appBlocosDeCodigo />
+      </section>
+    }
+  }
+}
+
+<section class="trilhas" aria-label="Ideias de portfólio">
+  @switch (conteudo.status()) {
+    @case ('carregando') {
+      <p class="aviso">Carregando ideias…</p>
+    }
+    @case ('erro') {
+      <p class="aviso aviso--erro">Não foi possível carregar as ideias. Recarregue a página.</p>
+    }
+    @case ('pronto') {
+      @for (bloco of conteudo.blocos(); track bloco.id) {
+        <section class="bloco" [attr.aria-labelledby]="'bloco-' + bloco.id">
+          <header class="bloco__cabecalho">
+            <p class="bloco__numero">Bloco {{ bloco.numero }}</p>
+            <h2 class="bloco__titulo" [id]="'bloco-' + bloco.id">{{ bloco.titulo }}</h2>
+            <p class="bloco__descricao">{{ bloco.descricao }}</p>
+          </header>
+
+          <ol class="trilha">
+            @for (ideia of bloco.ideias; track ideia.slug; let posicao = $index) {
+              <li class="trilha__item">
+                <span class="trilha__passo" aria-hidden="true">{{ posicao + 1 }}</span>
+                <a class="cartao" [routerLink]="['/ideias', ideia.slug]">
+                  <span class="cartao__icone" aria-hidden="true">{{ ideia.icone }}</span>
+                  <span class="cartao__conteudo">
+                    <span class="cartao__topo">
+                      <app-dificuldade [nivel]="ideia.nivel" />
+                      @if (ideia.status === 'rascunho') {
+                        <span class="selo-rascunho">Rascunho</span>
+                      }
+                    </span>
+                    <span class="cartao__titulo">{{ ideia.titulo }}</span>
+                    <span class="cartao__resumo">{{ ideia.resumo }}</span>
+                    <span class="etiquetas">
+                      @for (tecnologia of ideia.tecnologias; track tecnologia) {
+                        <span class="etiqueta">{{ tecnologia }}</span>
+                      }
+                    </span>
+                  </span>
+                  <span class="cartao__seta" aria-hidden="true">→</span>
+                </a>
+              </li>
+            }
+          </ol>
+        </section>
+      } @empty {
+        <p class="aviso">Nenhuma ideia publicada ainda.</p>
+      }
+    }
+  }
+</section>

@@ -1,0 +1,24 @@
+@switch (pagina().estado) {
+  @case ('carregando') {
+    <p class="aviso">Carregando… 💌</p>
+  }
+  @case ('erro') {
+    <p class="aviso aviso--erro">Não foi possível carregar o recado. Recarregue a página.</p>
+  }
+  @case ('pronto') {
+    @if (pagina().valor; as recado) {
+      <div class="mesa">
+        <span class="mesa__coracao mesa__coracao--1" aria-hidden="true">♥</span>
+        <span class="mesa__coracao mesa__coracao--2" aria-hidden="true">♡</span>
+        <span class="mesa__coracao mesa__coracao--3" aria-hidden="true">♥</span>
+
+        <article class="carta">
+          <span class="carta__selo" aria-hidden="true">💌</span>
+          <h1 class="carta__titulo">{{ recado.titulo }}</h1>
+          <markdown class="carta__texto" [data]="recado.corpo" />
+          <p class="carta__fim" aria-hidden="true">♥ ♥ ♥</p>
+        </article>
+      </div>
+    }
+  }
+}

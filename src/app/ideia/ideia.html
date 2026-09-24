@@ -1,0 +1,100 @@
+@switch (status()) {
+  @case ('carregando') {
+    <p class="aviso">Carregando… ✨</p>
+  }
+  @case ('erro') {
+    <p class="aviso aviso--erro">Não foi possível carregar as ideias. Recarregue a página.</p>
+  }
+  @case ('pronto') {
+    @if (ideia(); as ideia) {
+      <article class="ideia">
+        <header class="capa">
+          <a class="capa__voltar" routerLink="/"><span aria-hidden="true">←</span> Todas as ideias</a>
+
+          <div class="capa__topo">
+            <span class="capa__icone" aria-hidden="true">{{ ideia.icone }}</span>
+            <div>
+              @if (posicao(); as posicao) {
+                <p class="capa__posicao">
+                  Bloco {{ posicao.bloco.numero }} · {{ posicao.bloco.titulo }} · Ideia
+                  {{ posicao.numero }} de {{ posicao.total }}
+                </p>
+              }
+              <h1 class="capa__titulo">{{ ideia.titulo }}</h1>
+            </div>
+          </div>
+
+          <p class="capa__resumo">{{ ideia.resumo }}</p>
+
+          <dl class="fatos">
+            <div class="fatos__item">
+              <dt>Dificuldade</dt>
+              <dd><app-dificuldade [nivel]="ideia.nivel" [comNome]="true" /></dd>
+            </div>
+            <div class="fatos__item">
+              <dt>Tecnologias</dt>
+              <dd>
+                <ul class="etiquetas">
+                  @for (tecnologia of ideia.tecnologias; track tecnologia) {
+                    <li class="etiqueta">{{ tecnologia }}</li>
+                  }
+                </ul>
+              </dd>
+            </div>
+            <div class="fatos__item fatos__item--largo">
+              <dt>O que você vai aprender</dt>
+              <dd>
+                <ul class="etiquetas">
+                  @for (item of ideia.treina; track item) {
+                    <li class="etiqueta etiqueta--suave">{{ item }}</li>
+                  }
+                </ul>
+              </dd>
+            </div>
+          </dl>
+
+          @if (ideia.status === 'rascunho') {
+            <span class="selo-rascunho capa__rascunho">Rascunho</span>
+          }
+        </header>
+
+        <div class="corpo">
+          @switch (corpo().estado) {
+            @case ('carregando') {
+              <p class="aviso">Carregando… ✨</p>
+            }
+            @case ('erro') {
+              <p class="aviso aviso--erro">
+                Não foi possível carregar as ideias. Recarregue a página.
+              </p>
+            }
+            @case ('pronto') {
+              <markdown class="prosa" [data]="corpo().valor" appBlocosDeCodigo />
+            }
+          }
+        </div>
+
+        <nav class="vizinhas" aria-label="Outras ideias">
+          @if (vizinhas().anterior; as anterior) {
+            <a class="vizinha" [routerLink]="['/ideias', anterior.slug]">
+              <span class="vizinha__direcao">← Anterior</span>
+              <span class="vizinha__titulo">
+                <span aria-hidden="true">{{ anterior.icone }}</span> {{ anterior.titulo }}
+              </span>
+            </a>
+          }
+          @if (vizinhas().proxima; as proxima) {
+            <a class="vizinha vizinha--proxima" [routerLink]="['/ideias', proxima.slug]">
+              <span class="vizinha__direcao">Próxima →</span>
+              <span class="vizinha__titulo">
+                <span aria-hidden="true">{{ proxima.icone }}</span> {{ proxima.titulo }}
+              </span>
+            </a>
+          }
+        </nav>
+      </article>
+    } @else {
+      <app-nao-encontrada />
+    }
+  }
+}

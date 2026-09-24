@@ -1,0 +1,8 @@
+- Todos os requisitos obrigatórios estão feitos
+- O `docs/projeto.md` descreve o que foi construído, com o plano de construção atualizado
+- O site está no ar no GitHub Pages, com o link no "About" do repositório
+- O README está completo, com print e a seção "Como usei IA"
+- O histórico tem um commit por parte, com mensagens que dizem o que mudou
+- O console do navegador não mostra erros
+- O HTML passa no validador do W3C
+- Você consegue explicar qualquer trecho do código, mesmo os que a IA escreveu

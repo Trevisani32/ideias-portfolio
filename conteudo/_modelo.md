@@ -1,12 +1,13 @@
 ---
 titulo: Nome da ideia
 slug: nome-da-ideia
-nivel: 1
+bloco: primeiros-projetos
 ordem: 99
-resumo: Uma frase de até 160 caracteres que aparece no cartão da ideia.
+nivel: 1
+icone: "✨"
+resumo: "Uma frase de até 160 caracteres que aparece no cartão da ideia."
 tecnologias: [HTML, CSS]
 treina: [Conceito 1, Conceito 2, Conceito 3]
-tempoEstimado: 6 a 10 horas
 status: rascunho
 ---
 
@@ -14,7 +15,7 @@ status: rascunho
 
 <!-- O que é o projeto e por que ele fica bem no portfólio. De 1 a 3 parágrafos. -->
 
-## O que você vai treinar
+## O que você vai aprender
 
 <!-- Um item por conceito, com uma linha de explicação. -->
 
@@ -36,63 +37,84 @@ status: rascunho
 
 ## Antes de começar
 
-<!-- bloco: antes-de-comecar -->
+<!-- trecho: ia-professora -->
 
-<!-- Depois do bloco: o que for específico deste projeto (onde achar imagens, referências, dados). -->
-
-## Como usar a IA neste projeto
-
-<!-- bloco: principios-ia -->
-
-<!-- Depois do bloco: onde a IA mais ajuda NESTE projeto e o que é trabalho dela. -->
+<!-- Depois do trecho (opcional): algo que ela precisa saber antes deste projeto específico. -->
 
 ## Passo a passo
 
-<!-- bloco: criar-repositorio -->
+<!-- trecho: escolher-stack -->
 
-<!-- Repita a etapa abaixo para cada etapa específica do projeto. Não numere: o script numera. -->
+#### A stack deste projeto
 
-### Etapa — Título da etapa
+<!-- Cada tecnologia com uma linha dizendo para que serve NESTE projeto, e o que instalar além do básico. -->
 
-**Objetivo:** uma frase com o resultado desta etapa.
+- **HTML:** para que serve neste projeto.
 
-**Você faz:**
+<!-- trecho: documentar-projeto -->
 
-1. Primeiro passo concreto.
-2. Segundo passo concreto.
+#### O que não pode faltar no documento deste projeto
 
-**Onde a IA ajuda:** quando e para quê usar a IA nesta etapa.
+<!-- Os casos de uso, telas, dados e arquivos específicos deste projeto. -->
+
+- **Casos de uso:** ...
+- **Telas:** ...
+- **Dados:** ...
+- **Estrutura de arquivos:** ...
+
+<!-- trecho: criar-repositorio -->
+
+<!-- trecho: dividir-em-partes -->
+
+#### As partes deste projeto
+
+<!-- A lista numerada das partes, na mesma ordem das etapas "Parte" abaixo. -->
+
+1. **Nome da parte:** o que ela entrega.
+
+<!-- Repita a etapa abaixo para cada parte. Não numere: o script numera etapas e partes. -->
+
+### Etapa — Parte: Nome da parte
+
+**O que esta parte entrega:** uma frase com o resultado visível no navegador.
+
+**Peça para a professora:**
 
 ```prompt
-Estou fazendo [CONTEXTO DO PROJETO]. Já fiz [O QUE VOCÊ JÁ FEZ]. Este é meu código:
+Vamos fazer a parte "[NOME DA PARTE]" do projeto. [O QUE CONSTRUIR, COM OS DETALHES IMPORTANTES].
 
-[COLE SEU CÓDIGO AQUI]
-
-Me explique [O QUE VOCÊ QUER ENTENDER], sem reescrever meu código.
+Lembre do nosso jeito de ensinar: explique antes o que vai fazer e por quê, escreva o código completo e depois explique cada trecho.
 ```
+
+**Teste:** o que ela deve ver no navegador para saber que deu certo.
+
+**Pergunte à professora:**
+
+- Uma pergunta para aprofundar um conceito desta parte.
 
 **Confira se entendeu:**
 
-- Uma pergunta que você consegue responder sem a IA.
+- Uma pergunta que ela deve conseguir responder sem a IA.
 
 **Salve no Git:**
 
 ```bash
 git add .
-git commit -m "Descreve o que mudou nesta etapa"
+git commit -m "Descreve o que esta parte adicionou"
+git push
 ```
 
-<!-- bloco: revisar-com-ia -->
+<!-- trecho: revisar-e-testar -->
 
-<!-- bloco: escrever-readme -->
+<!-- trecho: escrever-readme -->
 
-<!-- bloco: publicar-github-pages -->
+<!-- trecho: publicar-github-pages -->
 
 ## Checklist de entrega
 
-<!-- bloco: checklist-entrega -->
+<!-- trecho: checklist-entrega -->
 
-<!-- Depois do bloco: itens específicos deste projeto. -->
+<!-- Depois do trecho: itens específicos deste projeto. -->
 
 ## Para ir além
 

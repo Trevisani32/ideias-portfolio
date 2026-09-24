@@ -1,0 +1,108 @@
+// Barras de rolagem fofas: trilho clarinho e uma "pílula" em gradiente rosa → lilás.
+//
+// Chrome, Edge e Safari desenham a barra com os pseudo-elementos ::-webkit-scrollbar, que
+// aceitam gradiente e cantos arredondados. O Firefox só entende scrollbar-color e
+// scrollbar-width, e, no Chrome 121+, usar essas duas propriedades DESLIGA os
+// pseudo-elementos. Por isso elas ficam só no @supports do fim do arquivo, que pega apenas
+// navegadores sem ::-webkit-scrollbar.
+
+html {
+  // Reserva o espaço da barra: a página não "pula" quando o conteúdo termina de carregar.
+  scrollbar-gutter: stable;
+}
+
+// Página inteira
+::-webkit-scrollbar {
+  width: 14px;
+  height: 14px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--rolagem-trilho);
+}
+
+::-webkit-scrollbar-thumb {
+  // A borda transparente afina a pílula e deixa ela "flutuando" no trilho.
+  border: 4px solid transparent;
+  border-radius: var(--raio-pilula);
+  background: var(--rolagem-pilula) padding-box;
+}
+
+::-webkit-scrollbar-thumb:horizontal {
+  background: var(--rolagem-pilula-deitada) padding-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--rolagem-pilula-forte) padding-box;
+}
+
+::-webkit-scrollbar-thumb:horizontal:hover {
+  background: var(--rolagem-pilula-deitada-forte) padding-box;
+}
+
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+// Menu lateral: barra fininha, que só aparece com o mouse em cima do menu
+.menu::-webkit-scrollbar {
+  width: 10px;
+}
+
+.menu::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.menu::-webkit-scrollbar-thumb {
+  border-width: 3px;
+  background: transparent;
+}
+
+.menu:hover::-webkit-scrollbar-thumb {
+  background: var(--rolagem-pilula) padding-box;
+}
+
+.menu:hover::-webkit-scrollbar-thumb:hover {
+  background: var(--rolagem-pilula-forte) padding-box;
+}
+
+// Blocos de código: rolagem horizontal discreta, dentro da moldura
+.bloco-codigo pre::-webkit-scrollbar {
+  height: 10px;
+}
+
+.bloco-codigo pre::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.bloco-codigo pre::-webkit-scrollbar-thumb {
+  border-width: 3px;
+}
+
+// No terminal escuro, a pílula fica clarinha
+.bloco-codigo--terminal pre::-webkit-scrollbar-thumb,
+.bloco-codigo--terminal pre::-webkit-scrollbar-thumb:horizontal {
+  background: rgb(255 255 255 / 25%) padding-box;
+}
+
+.bloco-codigo--terminal pre::-webkit-scrollbar-thumb:hover,
+.bloco-codigo--terminal pre::-webkit-scrollbar-thumb:horizontal:hover {
+  background: rgb(255 255 255 / 45%) padding-box;
+}
+
+// Firefox (e outros sem ::-webkit-scrollbar): só cor e espessura
+@supports not selector(::-webkit-scrollbar) {
+  * {
+    scrollbar-color: var(--rosa-300) var(--rolagem-trilho);
+  }
+
+  .menu,
+  .bloco-codigo pre {
+    scrollbar-color: var(--rosa-300) transparent;
+    scrollbar-width: thin;
+  }
+
+  .bloco-codigo--terminal pre {
+    scrollbar-color: rgb(255 255 255 / 30%) transparent;
+  }
+}

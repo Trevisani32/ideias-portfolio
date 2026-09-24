@@ -2,7 +2,7 @@
 
 Site estático no GitHub Pages, publicado por GitHub Actions a cada push na `main`.
 
-Endereço: `https://<seu-usuario>.github.io/ideias-portfolio/`
+Endereço: https://trevisani32.github.io/ideias-portfolio/
 
 Custo: zero. GitHub Pages e Actions são gratuitos para repositório público.
 
@@ -51,8 +51,8 @@ Feita uma vez só:
 
 ## Workflow
 
-Referência para `.github/workflows/deploy.yml`. Ao implementar, confira a versão mais
-recente de cada action oficial.
+Cópia de `.github/workflows/deploy.yml`. As versões das actions oficiais foram conferidas
+em 2026-09-24; ao atualizar uma, atualize as duas cópias.
 
 ```yaml
 name: Deploy
@@ -75,8 +75,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
         with:
           node-version: 22
           cache: npm
@@ -84,7 +84,7 @@ jobs:
       - run: npm run test:conteudo
       - run: npm test -- --watch=false
       - run: npm run build
-      - uses: actions/upload-pages-artifact@v3
+      - uses: actions/upload-pages-artifact@v5
         with:
           path: dist/ideias-portfolio/browser
 
@@ -96,7 +96,7 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
 ```
 
 `workflow_dispatch` permite publicar de novo pela aba Actions sem precisar de commit.

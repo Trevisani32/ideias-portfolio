@@ -8,7 +8,7 @@
 O site é praticamente só texto longo: cada ideia tem um passo a passo com várias etapas,
 comandos e prompts. Sem backend ([ADR 0001](0001-site-estatico-sem-backend.md)), o conteúdo
 precisa viver no repositório, num formato confortável de escrever e revisar, e o app
-precisa de uma lista das ideias (título, nível, ordem...) para montar o menu e os cartões.
+precisa de uma lista das ideias (título, bloco, ordem...) para montar o menu e os cartões.
 
 ## Decisão
 
@@ -16,7 +16,7 @@ precisa de uma lista das ideias (título, nível, ordem...) para montar o menu e
   e corpo em **Markdown**.
 - Um script Node (`scripts/gerar-conteudo.mjs`) roda antes do `start` e do `build` e:
   - valida frontmatter e estrutura;
-  - monta o corpo final (inclusão de blocos, variáveis, numeração de etapas —
+  - monta o corpo final (inclusão de trechos, variáveis, numeração de etapas e partes —
     [ADR 0003](0003-ideias-autocontidas.md));
   - gera `public/conteudo/indice.json` (metadados de todas as ideias) e
     `public/conteudo/ideias/<slug>.md` (corpo final).

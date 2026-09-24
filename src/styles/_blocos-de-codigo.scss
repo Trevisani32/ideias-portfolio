@@ -1,0 +1,98 @@
+// Moldura que a diretiva BlocosDeCodigo coloca em volta de cada <pre> do Markdown.
+
+.bloco-codigo {
+  margin: 0 0 var(--espaco-5);
+  overflow: hidden;
+  border-radius: var(--raio-medio);
+  background: var(--cor-codigo-fundo);
+  box-shadow: inset 0 0 0 1px var(--lilas-100);
+
+  &__barra {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--espaco-3);
+    padding: var(--espaco-2) var(--espaco-2) var(--espaco-2) var(--espaco-4);
+    background: var(--cor-codigo-barra);
+  }
+
+  &__nome {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--espaco-2);
+    color: var(--lilas-600);
+    font-family: var(--fonte-titulo);
+    font-size: 0.85rem;
+    font-weight: 600;
+  }
+
+  &__copiar {
+    padding: var(--espaco-1) var(--espaco-4);
+    border: 0;
+    border-radius: var(--raio-pilula);
+    background: var(--cor-superficie);
+    box-shadow: var(--sombra-suave);
+    color: var(--cor-destaque);
+    font: inherit;
+    font-size: var(--tamanho-pequeno);
+    font-weight: 800;
+    cursor: pointer;
+    transition: transform 0.15s;
+
+    &:hover {
+      transform: translateY(-1px);
+    }
+  }
+
+  pre {
+    margin: 0;
+    padding: var(--espaco-4);
+    overflow-x: auto;
+    font-family: var(--fonte-codigo);
+    font-size: var(--tamanho-pequeno);
+    line-height: 1.6;
+  }
+
+  // O <code> dentro do <pre> herda a fonte da moldura (no prompt, a fonte do texto)
+  pre code {
+    font: inherit;
+  }
+
+  // Prompts: texto corrido para colar na IA, com quebra de linha
+  &--prompt {
+    background: var(--cor-prompt-fundo);
+    box-shadow: inset 0 0 0 2px var(--cor-prompt-borda);
+
+    .bloco-codigo__barra {
+      background: var(--cor-prompt-barra);
+    }
+
+    .bloco-codigo__nome {
+      color: var(--rosa-700);
+    }
+
+    pre {
+      font-family: var(--fonte-texto);
+      font-size: 1rem;
+      white-space: pre-wrap;
+    }
+  }
+
+  // Terminal: fundo escuro, como um terminal de verdade
+  &--terminal {
+    background: var(--cor-terminal-fundo);
+    box-shadow: none;
+
+    .bloco-codigo__barra {
+      background: var(--cor-terminal-barra);
+    }
+
+    .bloco-codigo__nome {
+      color: var(--rosa-100);
+    }
+
+    pre {
+      color: var(--cor-terminal-texto);
+    }
+  }
+}
